@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.124.0">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>StorePlanningApp  Function :: AWS System Manager</title>
+
+    
+    <link href="/css/nucleus.css?1757573999" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1757573999" rel="stylesheet">
+    <link href="/css/hybrid.css?1757573999" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1757573999" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1757573999" rel="stylesheet">
+    <link href="/css/auto-complete.css?1757573999" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1757573999" rel="stylesheet">
+    <link href="/css/theme.css?1757573999" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1757573999" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1757573999" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1757573999"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/4-lambdafunctions/4.4-storeplanningapp/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/ken-data.github.io">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1757573999"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1757573999"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1757573999"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/1-introduce/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/" title="Chuẩn bị" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/2-prerequiste/">
+           <b> 2. </b> Chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/2-prerequiste/2.1-creates3bucket/">
+           <b> 2.1 </b> Tạo S3 Bucket
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-createtableanddatabase/" title="Tạo Database &amp; Table" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/2-prerequiste/2.2-createtableanddatabase/">
+           <b> 2.2 </b> Tạo Database &amp; Table
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.3-createfirehoseiamrole/" title="Create IAM Role for Kinesis Data Firehose" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/2-prerequiste/2.3-createfirehoseiamrole/">
+           <b> 2.3 </b> Create IAM Role for Kinesis Data Firehose
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-createfirehosestream/" title="Data Firehose Stream" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/3-createfirehosestream/">
+           <b> 3. </b> Data Firehose Stream
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-lambdafunctions/" title="Lambda Functions" class="dd-item 
+    parent
+    
+    "
+        >
+      <a href="/vi/4-lambdafunctions/">
+           <b> 4. </b> Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-lambdafunctions/4.1-storeapp/" title="Tạo StoreApp Function" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/4-lambdafunctions/4.1-storeapp/">
+           <b> 4.1 </b> Tạo StoreApp Function
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-lambdafunctions/4.2-configurestoreapp/" title="Cấu hình và test StoreApp" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/4-lambdafunctions/4.2-configurestoreapp/">
+           <b> 4.2 </b> Cấu hình và test StoreApp
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-lambdafunctions/4.3-createsqs/" title="Tạo SQS Queue" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/4-lambdafunctions/4.3-createsqs/">
+           <b> 4.3 </b> Tạo SQS Queue
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-lambdafunctions/4.4-storeplanningapp/" title="StorePlanningApp  Function" class="dd-item 
+    
+    active
+    "
+        >
+      <a href="/vi/4-lambdafunctions/4.4-storeplanningapp/">
+           <b> 4.4 </b> StorePlanningApp  Function
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-lambdafunctions/4.5-storetruckapp/" title="Tạo StoreTruckApp và hoàn thành Pipeline" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/4-lambdafunctions/4.5-storetruckapp/">
+           <b> 4.5 </b> Tạo StoreTruckApp và hoàn thành Pipeline
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
+    
+    
+    "
+        >
+      <a href="/vi/5-cleanup/">
+           <b> 5. </b> Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/4-lambdafunctions/4.4-storeplanningapp/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/4-lambdafunctions/4.4-storeplanningapp/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Phân tích Streaming cho Quản lý Hàng tồn kho Cửa hàng</a> > <a href='/vi/4-lambdafunctions/'>Lambda Functions</a> > StorePlanningApp  Function
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tổng-quan-storeplanningapp-lambda-function">Tổng quan StorePlanningApp Lambda Function</a></li>
+    <li><a href="#hướng-dẫn-từng-bước">Hướng dẫn từng bước</a>
+      <ul>
+        <li><a href="#bước-1-navigate-to-lambda-console">Bước 1: Navigate to Lambda Console</a></li>
+        <li><a href="#bước-2-create-new-function">Bước 2: Create New Function</a></li>
+        <li><a href="#bước-3-deploy-function-code">Bước 3: Deploy Function Code</a></li>
+        <li><a href="#bước-4-configure-environment-variables">Bước 4: Configure Environment Variables</a></li>
+        <li><a href="#bước-5-configure-timeout">Bước 5: Configure Timeout</a></li>
+        <li><a href="#bước-6-configure-iam-permissions">Bước 6: Configure IAM Permissions</a></li>
+        <li><a href="#bước-7-test-lambda-function">Bước 7: Test Lambda Function</a></li>
+        <li><a href="#bước-8-verify-test-results">Bước 8: Verify Test Results</a></li>
+      </ul>
+    </li>
+    <li><a href="#verify-function-operation">Verify Function Operation</a></li>
+    <li><a href="#tóm-tắt">Tóm tắt</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              StorePlanningApp  Function
+            </h1>
+          
+
+        
+
+
+
+	<p>Trong bước này, bạn sẽ tạo <strong>StorePlanningApp Lambda Function</strong> - ứng dụng xử lý logic lập kế hoạch cho hệ thống cửa hàng. Function này sẽ nhận messages từ SQS Queue, thực hiện phân tích dữ liệu từ Athena và tạo ra các chiến lược lập kế hoạch cung ứng.</p>
+<h2 id="tổng-quan-storeplanningapp-lambda-function">Tổng quan StorePlanningApp Lambda Function</h2>
+<p>StorePlanningApp đóng vai trò quan trọng trong kiến trúc analytics:</p>
+<ul>
+<li><strong>Message Consumer</strong>: Nhận và xử lý messages từ SQS Store_Queue</li>
+<li><strong>Data Analytics</strong>: Query dữ liệu từ Athena/Glue để phân tích tồn kho</li>
+<li><strong>Planning Logic</strong>: Tính toán nhu cầu và tạo kế hoạch cung ứng</li>
+<li><strong>Result Storage</strong>: Lưu kết quả phân tích vào S3 bucket</li>
+</ul>
+<h2 id="hướng-dẫn-từng-bước">Hướng dẫn từng bước</h2>
+<h3 id="bước-1-navigate-to-lambda-console">Bước 1: Navigate to Lambda Console</h3>
+<ol>
+<li>Trong thanh tìm kiếm AWS Console</li>
+<li>Nhập <strong>&ldquo;lambda&rdquo;</strong></li>
+<li>Chọn <strong>&ldquo;Lambda&rdquo;</strong> từ kết quả tìm kiếm</li>
+</ol>
+<p><img alt="Navigate to Lambda" src="/images/22.png"></p>
+<h3 id="bước-2-create-new-function">Bước 2: Create New Function</h3>
+<ol>
+<li>Nhấp vào nút <strong>&ldquo;Create function&rdquo;</strong></li>
+<li><strong>Function name</strong>: Đặt tên <code>StorePlanningApp</code></li>
+<li><strong>Runtime</strong>: Chọn <strong>&ldquo;Python 3.13&rdquo;</strong></li>
+<li>Các cấu hình khác giữ mặc định</li>
+<li>Nhấp <strong>&ldquo;Create function&rdquo;</strong></li>
+</ol>
+<p><img alt="Create Planning Lambda" src="/images/23.png"></p>
+
+<div class="notices info" ><p><strong>StorePlanningApp</strong>: Function này sẽ chứa logic phức tạp hơn StoreApp, bao gồm Athena queries và planning algorithms.</p>
+</div>
+
+<h3 id="bước-3-deploy-function-code">Bước 3: Deploy Function Code</h3>
+<ol>
+<li>Trong giao diện Lambda code của &ldquo;StorePlanningApp&rdquo;</li>
+<li>Thực hiện các bước tương tự như đã làm với &ldquo;StoreApp&rdquo;:
+<ul>
+<li>Tạo file <code>function.py</code></li>
+<li>Cấu hình handler thành <code>function.lambda_handler</code></li>
+</ul>
+</li>
+<li>Copy và paste code từ link sau: <a href="/downloads/planning-function.py">📁 planning-function.py</a></li>
+<li>Nhấp <strong>&ldquo;Deploy&rdquo;</strong> để deploy code</li>
+</ol>
+<p><img alt="Deploy Planning Code" src="/images/24.png"></p>
+
+<div class="notices download" ><p><strong>📁 Source Code Required</strong>: Copy nội dung từ link <a href="/downloads/planning-function.py">planning-function.py</a> và paste vào file <code>function.py</code> trong Lambda editor.</p>
+</div>
+
+<h3 id="bước-4-configure-environment-variables">Bước 4: Configure Environment Variables</h3>
+<ol>
+<li>Navigate sang phần <strong>&ldquo;Configuration&rdquo;</strong></li>
+<li>Chọn <strong>&ldquo;Environment variables&rdquo;</strong></li>
+<li>Nhấp vào <strong>&ldquo;Edit&rdquo;</strong></li>
+</ol>
+<p>Thêm 4 environment variables sau:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>glue_db</code></td>
+<td><code>conversion_db</code></td>
+<td>Tên Glue database</td>
+</tr>
+<tr>
+<td><code>glue_table</code></td>
+<td><code>conversion_table</code></td>
+<td>Tên Glue table</td>
+</tr>
+<tr>
+<td><code>output_bucket</code></td>
+<td><code>s3://consumption-bucket-yourname/</code></td>
+<td>S3 bucket output</td>
+</tr>
+<tr>
+<td><code>queue_url</code></td>
+<td><code>https://sqs.ap-southeast-1.amazonaws.com/yourID/Store_Queue</code></td>
+<td>SQS Queue URL</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Configure Environment Variables" src="/images/26.png"></p>
+
+<div class="notices warning" ><p><strong>Replace Information</strong>:</p>
+<ul>
+<li>Thay <code>yourname</code> trong bucket name bằng tên của bạn</li>
+<li>Thay <code>yourID</code> trong queue URL bằng AWS Account ID của bạn</li>
+</ul>
+</div>
+
+<h3 id="bước-5-configure-timeout">Bước 5: Configure Timeout</h3>
+<ol>
+<li>Vẫn trong phần <strong>&ldquo;Configuration&rdquo;</strong></li>
+<li>Chọn <strong>&ldquo;General configuration&rdquo;</strong></li>
+<li>Nhấp vào <strong>&ldquo;Edit&rdquo;</strong></li>
+</ol>
+<p><img alt="Navigate General Config" src="/images/27.png"></p>
+<ol start="4">
+<li>Đặt <strong>Timeout</strong> thành <strong>&ldquo;2 min&rdquo;</strong> (120 seconds)</li>
+<li>Nhấp <strong>&ldquo;Save&rdquo;</strong> để lưu cấu hình</li>
+</ol>
+<p><img alt="Set Timeout" src="/images/28.png"></p>
+
+<div class="notices tip" ><p><strong>Why 2 minutes timeout?</strong>: StorePlanningApp cần thời gian để query Athena và xử lý dữ liệu, timeout dài hơn đảm bảo function không bị terminate sớm.</p>
+</div>
+
+<h3 id="bước-6-configure-iam-permissions">Bước 6: Configure IAM Permissions</h3>
+<ol>
+<li>Navigate về <strong>IAM Console</strong></li>
+<li>Trong thanh tìm kiếm, nhập <strong>&ldquo;store&rdquo;</strong></li>
+<li>Tìm và chọn role <strong>&ldquo;StorePlanningApp-role-xxxxx&rdquo;</strong></li>
+</ol>
+<p><img alt="Find Planning Role" src="/images/21_5.png"></p>
+<ol start="4">
+<li>Nhấp <strong>&ldquo;Add permissions&rdquo;</strong> → <strong>&ldquo;Attach policies&rdquo;</strong></li>
+</ol>
+<p><img alt="Add Permissions" src="/images/21_6.png"></p>
+<ol start="5">
+<li>Thêm các policies sau (tìm kiếm và attach từng policy):
+<ul>
+<li>✅ <strong>AmazonAthenaFullAccess</strong></li>
+<li>✅ <strong>AmazonS3FullAccess</strong></li>
+<li>✅ <strong>AmazonSQSFullAccess</strong></li>
+<li>✅ <strong>AWSGlueConsoleFullAccess</strong></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Attach Policies" src="/images/21_7.png"></p>
+
+<div class="notices info" ><p><strong>IAM Permissions Explained</strong>:</p>
+<ul>
+<li><strong>Athena</strong>: Query dữ liệu từ data lake</li>
+<li><strong>S3</strong>: Read/write result files</li>
+<li><strong>SQS</strong>: Receive messages từ queue</li>
+<li><strong>Glue</strong>: Access metadata catalog</li>
+</ul>
+</div>
+
+<h3 id="bước-7-test-lambda-function">Bước 7: Test Lambda Function</h3>
+<ol>
+<li>Quay lại Lambda <strong>&ldquo;StorePlanningApp&rdquo;</strong></li>
+<li>Navigate tới phần <strong>&ldquo;Test&rdquo;</strong></li>
+<li>Tạo test event với tên <strong>&ldquo;test&rdquo;</strong></li>
+<li>Nhấp nút <strong>&ldquo;Test&rdquo;</strong> để thực hiện</li>
+</ol>
+<p><img alt="Create Test Event" src="/images/29.png"></p>
+<h3 id="bước-8-verify-test-results">Bước 8: Verify Test Results</h3>
+<p>Sau khi test thành công, bạn sẽ thấy:</p>
+<ul>
+<li>✅ <strong>Execution result</strong>: succeeded</li>
+<li>✅ <strong>Function logs</strong>: Thông tin xử lý chi tiết</li>
+<li>✅ <strong>Duration</strong>: Thời gian thực thi</li>
+<li>✅ <strong>Memory used</strong>: Resource consumption</li>
+</ul>
+<p><img alt="Test Results" src="/images/30.png"></p>
+<h2 id="verify-function-operation">Verify Function Operation</h2>
+<p>Sau khi hoàn thành các bước trên, StorePlanningApp Lambda function có:</p>
+<p>✅ <strong>Runtime</strong>: Python 3.13<br>
+✅ <strong>Handler</strong>: function.lambda_handler<br>
+✅ <strong>Source Code</strong>: Planning logic deployed<br>
+✅ <strong>Environment Variables</strong>: 4 variables configured<br>
+✅ <strong>Timeout</strong>: 2 minutes<br>
+✅ <strong>IAM Permissions</strong>: 4 policies attached<br>
+✅ <strong>Test Status</strong>: Successfully executed</p>
+
+<div class="notices success" ><p><strong>StorePlanningApp Complete!</strong> Lambda function đã được tạo, cấu hình và test thành công. Function sẵn sàng xử lý planning logic từ SQS messages.</p>
+</div>
+
+<h2 id="tóm-tắt">Tóm tắt</h2>
+<p>StorePlanningApp Lambda function hiện đã:</p>
+<ul>
+<li><strong>Receives and processes</strong> messages từ SQS Queue</li>
+<li><strong>Queries data</strong> từ Athena cho analytics</li>
+<li><strong>Executes planning logic</strong> dựa trên inventory data</li>
+<li><strong>Stores results</strong> vào S3 bucket</li>
+<li><strong>Ready to scale</strong> với message volume</li>
+</ul>
+<p>Function này là thành phần cốt lõi trong store planning và analytics pipeline của chúng ta!</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/4-lambdafunctions/4.3-createsqs/" title="Tạo SQS Queue"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/4-lambdafunctions/4.5-storetruckapp/" title="Tạo StoreTruckApp và hoàn thành Pipeline" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1757573999"></script>
+    <script src="/js/perfect-scrollbar.min.js?1757573999"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1757573999"></script>
+    <script src="/js/jquery.sticky.js?1757573999"></script>
+    <script src="/js/featherlight.min.js?1757573999"></script>
+    <script src="/js/highlight.pack.js?1757573999"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1757573999"></script>
+    <script src="/js/learn.js?1757573999"></script>
+    <script src="/js/hugo-learn.js?1757573999"></script>
+
+    <link href="/mermaid/mermaid.css?1757573999" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1757573999"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+[
+  {
+    "Name": "store_id",
+    "Type": "string",
+    "Comment": ""
+  },
+  {
+    "Name": "product_id",
+    "Type": "string",
+    "Comment": ""
+  },
+  {
+    "Name": "product_name",
+    "Type": "string",
+    "Comment": ""
+  },
+  {
+    "Name": "current_stock",
+    "Type": "int",
+    "Comment": ""
+  },
+  {
+    "Name": "threshold_level",
+    "Type": "int",
+    "Comment": ""
+  },
+  {
+    "Name": "is_stock_low",
+    "Type": "boolean",
+    "Comment": ""
+  },
+  {
+    "Name": "check_timestamp",
+    "Type": "bigint",
+    "Comment": ""
+  },
+  {
+    "Name": "notification_sent",
+    "Type": "boolean",
+    "Comment": ""
+  },
+  {
+    "Name": "restock_status",
+    "Type": "string",
+    "Comment": ""
+  }
+]
